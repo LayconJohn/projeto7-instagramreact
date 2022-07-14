@@ -70,4 +70,10 @@ const Botoes = styled.div`
 
 const Icone = styled.div`
     margin-right: 20px; 
+    scale: 0.9;
+    transition: all ease 0.5s;
+
+    &:hover {
+        scale: 1;
+    }
 `;
