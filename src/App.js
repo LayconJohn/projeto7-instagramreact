@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 import Topo from './components/topo/Topo';
 import Stories from './components/principal/stories/Stories';
+import Feed from './components/principal/feed/Feed';
 
 export default function App() {
 
@@ -10,6 +11,7 @@ export default function App() {
             <Topo />
             <ConteudoPrincipal>
                 <Stories />
+                <Feed />
             </ConteudoPrincipal>
         </Tela>
     )

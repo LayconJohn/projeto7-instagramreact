@@ -53,6 +53,7 @@ export default function Stories() {
 
 const AreaStories = styled.div`
     margin-top: 80px;
+    margin-bottom: 24px;
     height: 118px;
     width: 614px;
     display: flex;
