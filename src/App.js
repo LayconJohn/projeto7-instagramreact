@@ -35,7 +35,9 @@ const ConteudoPrincipal = styled.div`
 
 const Sidebar = styled.div`
     width: 213px;
-    padding-top: 88px;
+    position: fixed;
+    top: 88px;
+    left: 858px;
 `;
 
 const BordaSeparadora = styled.div`
