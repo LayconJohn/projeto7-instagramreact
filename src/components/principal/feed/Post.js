@@ -1,11 +1,37 @@
 import styled from 'styled-components';
+import { useState } from 'react';
 
 import { AiOutlineHeart } from 'react-icons/ai';
 import { FaRegComment } from 'react-icons/fa';
 import { BiPaperPlane } from 'react-icons/bi';
 import { BsBookmark, BsThreeDots } from 'react-icons/bs';
 
-export default function Post( { fotoPerfil, nomePerfil, fotoPost, fotoCurtida, nomeCurtida, curtidas } ) {
+export default function Post( { 
+    fotoPerfil,
+    nomePerfil, 
+    fotoPost, 
+    fotoCurtida, 
+    nomeCurtida, 
+    curtidas,
+    posts,
+    setPosts,
+    liked   
+} ) {
+
+    //State
+    const [like, setLike] = useState(liked)
+
+    //logic
+    function curtirPost(){
+        if (liked) {
+            setPosts({...posts, liked: false});
+        } else {
+            setPosts({...posts, liked: true});
+        }
+
+    }
+
+    //render
     return (
         <Postagem>
             <TituloPost>
@@ -15,7 +41,7 @@ export default function Post( { fotoPerfil, nomePerfil, fotoPost, fotoCurtida, n
             </TituloPost>
             <FotoPost src={fotoPost} alt={nomePerfil} />
             <BotoesPost>
-                <span> <AiOutlineHeart /> </span>
+                <BotaoCurtir liked={like} onClick={ () => setLike(!like)}> <AiOutlineHeart /> </BotaoCurtir>
                 <span> <FaRegComment /> </span>
                 <span> <BiPaperPlane /> </span>
                 <div> <BsBookmark /> </div>
@@ -83,6 +109,7 @@ const BotoesPost = styled.div`
     span {
         margin-left: 17px;
         margin-top: 14px;
+        cursor: pointer;
     }
 
     div {
@@ -90,6 +117,22 @@ const BotoesPost = styled.div`
         right: 17px;
         top: 14px;
     }
+`;
+
+const BotaoCurtir = styled.span`
+    margin-left: 17px;
+    margin-top: 14px;
+    color: ${props => props.liked ? "red" : ""};
+    scale: 0.95;
+
+    &:hover {
+        scale: 1;
+    }
+
+    &:active {
+        transform: translateY(1px);
+    }
+
 `;
 
 const FotoPost = styled.img`
