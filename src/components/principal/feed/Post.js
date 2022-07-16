@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { useState } from 'react';
 
 import { AiOutlineHeart } from 'react-icons/ai';
-import { FaRegComment } from 'react-icons/fa';
+import { FaRegComment, FaHeart } from 'react-icons/fa';
 import { BiPaperPlane } from 'react-icons/bi';
 import { BsBookmark, BsThreeDots } from 'react-icons/bs';
 
@@ -38,7 +38,7 @@ export default function Post( {
             </TituloPost>
             <FotoPost src={fotoPost} alt={nomePerfil} onClick={(event) => curtirPost(event)} />
             <BotoesPost>
-                <BotaoCurtir liked={like} onClick={ () => setLike(!like)}> <AiOutlineHeart /> </BotaoCurtir>
+                <BotaoCurtir liked={like} onClick={ () => setLike(!like)}> {like ? <FaHeart /> : <AiOutlineHeart />} </BotaoCurtir>
                 <span> <FaRegComment /> </span>
                 <span> <BiPaperPlane /> </span>
                 <div> <BsBookmark /> </div>
