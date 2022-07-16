@@ -22,13 +22,10 @@ export default function Post( {
     const [like, setLike] = useState(liked)
 
     //logic
-    function curtirPost(){
-        if (liked) {
-            setPosts({...posts, liked: false});
-        } else {
-            setPosts({...posts, liked: true});
-        }
-
+    function curtirPost(event){
+        if (!like && event.detail === 2) {
+            setLike(true);
+        } 
     }
 
     //render
@@ -39,7 +36,7 @@ export default function Post( {
                 <h4> {nomePerfil} </h4>
                 <Opcoes> <BsThreeDots /> </Opcoes>               
             </TituloPost>
-            <FotoPost src={fotoPost} alt={nomePerfil} />
+            <FotoPost src={fotoPost} alt={nomePerfil} onClick={(event) => curtirPost(event)} />
             <BotoesPost>
                 <BotaoCurtir liked={like} onClick={ () => setLike(!like)}> <AiOutlineHeart /> </BotaoCurtir>
                 <span> <FaRegComment /> </span>
