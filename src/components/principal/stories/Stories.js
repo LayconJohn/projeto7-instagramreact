@@ -17,6 +17,7 @@ function Story( {imagem, nome} ) {
 export default function Stories() {
     //Estado
     const [fotos, setFotos] = useState([]);
+    const [rolagemHorizontal, setRolagemHorizontal] = useState(0);
 
     //logic
     useEffect( () => {
@@ -40,13 +41,19 @@ export default function Stories() {
     ])
     }, [])
 
+    function rolarStories() {
+        let x = rolagemHorizontal - Math.round(614 / 2);
+        setRolagemHorizontal(x);
+    }
+
     return (
-        <AreaStories>
-            {fotos.map( perfil => {
-                return <Story imagem={perfil.foto} nome={perfil.nome}/>
-            })}
-            
-            <Seta> <CgChevronRightO /> </Seta>
+        <AreaStories >
+            <StoriesRow rolagemX={`${rolagemHorizontal}px`} >
+                {fotos.map( perfil => {
+                    return <Story imagem={perfil.foto} nome={perfil.nome}/>
+                })}
+            </StoriesRow>  
+            <Seta onClick={rolarStories}> <CgChevronRightO /> </Seta>
         </AreaStories>
     )
 }
@@ -63,6 +70,12 @@ const AreaStories = styled.div`
     overflow: hidden;
     position: relative;
 
+`;
+
+const StoriesRow = styled.div`
+    display: flex;
+    margin-left: ${props => props.rolagemX};
+    transition: all ease 0.5s;
 `;
 
 const Foto = styled.div`
