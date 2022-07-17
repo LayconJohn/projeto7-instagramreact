@@ -9,6 +9,7 @@ import { ImCompass2 } from 'react-icons/im';
 
 export default function Topo() {
     return (
+        <>
         <TopoDesktop>
             <Logo>
                 <BsInstagram />
@@ -22,6 +23,7 @@ export default function Topo() {
                 <Icone> <ImCompass2 /> </Icone>
             </Botoes>
         </TopoDesktop>
+        </>
     )
 }
 
@@ -40,6 +42,14 @@ const TopoDesktop = styled.div`
     right: 0;
     left: 0;
     z-index: 1;
+
+    @media(max-width: 935px) {
+        padding: 0px 10px;
+    }
+
+    @media(max-width: 614px) {
+        display: none;
+    }
 `;
 
 const Logo = styled.div`

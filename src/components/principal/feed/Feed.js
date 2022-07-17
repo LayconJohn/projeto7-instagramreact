@@ -63,4 +63,8 @@ export default function Feed() {
 const Posts = styled.div`
     width: 614px;
     height: 100px;
+
+    @media(max-width: 614px) {
+        width: 100%;
+    }
 `;

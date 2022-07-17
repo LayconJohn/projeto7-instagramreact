@@ -43,6 +43,10 @@ export default function Stories() {
 
     function rolarStories() {
         let x = rolagemHorizontal - Math.round(614 / 2);
+        const larguraStories = fotos.length * 56;
+        if (614 - larguraStories > x) {
+            x = 614 - larguraStories;
+        }
         setRolagemHorizontal(x);
     }
 
@@ -70,6 +74,10 @@ const AreaStories = styled.div`
     overflow: hidden;
     position: relative;
 
+    @media(max-width: 614px) {
+        width: 600px;
+        overflow-x: scroll;
+    }
 `;
 
 const StoriesRow = styled.div`
@@ -133,5 +141,9 @@ const Seta = styled.div`
     ion-icon {
         width: 26px;
         height: 26px;
+    }
+
+    @media(max-width: 614px) {
+        display: none;
     }
 `;

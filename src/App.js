@@ -6,11 +6,15 @@ import Feed from './components/principal/feed/Feed';
 import Perfil from './components/sidebar/perfil/Perfil';
 import Sugestoes from './components/sidebar/sugestoes/Sugestoes';
 
+import TopoMobile from './components/mobile/TopoMobile';
+import BarraMobile from './components/mobile/BarraMobile';
+
 export default function App() {
 
     return (
         <Tela>
             <Topo />
+            <TopoMobile />
             <ConteudoPrincipal>
                 <Stories />
                 <Feed />
@@ -20,6 +24,7 @@ export default function App() {
                 <Perfil />
                 <Sugestoes />
             </Sidebar>
+            <BarraMobile />
         </Tela>
     )
 }
@@ -31,6 +36,10 @@ const Tela = styled.div`
 
 const ConteudoPrincipal = styled.div`
     margin-left: 215px;
+
+    @media(max-width: 935px) {
+        margin: 0 auto;
+    }
 `;
 
 const Sidebar = styled.div`
@@ -38,6 +47,10 @@ const Sidebar = styled.div`
     position: fixed;
     top: 88px;
     left: 858px;
+
+    @media(max-width: 935px) {
+        display: none;
+    }
 `;
 
 const BordaSeparadora = styled.div`

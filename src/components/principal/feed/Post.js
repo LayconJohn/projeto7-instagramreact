@@ -136,6 +136,10 @@ const FotoPost = styled.img`
     width: 612px;
     height: 612px;
     object-fit: cover;
+
+    @media(max-width: 614px) {
+        width: 100%;
+    }
 `;
 
 const Curtidas = styled.div`
